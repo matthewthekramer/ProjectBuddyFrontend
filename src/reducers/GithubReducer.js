@@ -9,7 +9,8 @@ const INITIAL_STATE = {
   githubLogin: '',
   githubPassword: '',
   loading: false,
-  uid: ''
+  uid: '',
+  submitted: false
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -21,7 +22,7 @@ export default (state = INITIAL_STATE, action) => {
     case(SUBMIT):
       return {...state, loading: true}
     case(SUBMIT_SUCCESS):
-      return {...state, loading: false, uid: action.payload}
+      return {...state, loading: false, uid: action.payload, submitted: true}
     default:
       return state;
   }
